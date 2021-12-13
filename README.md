@@ -1,0 +1,101 @@
+# HelloWorld i Spring
+
+## Nytt projekt
+
+Det här är ett exempelprojekt av hur vi kan skriva en HelloWorld med Spring.
+
+Vad jag gjort:
+
+* Skapat ett nytt projekt i IntelliJ och valt att använda Spring Boot Initializer
+* Lagt in en dependency i pom.xml
+* Lagt till två metoder i java-filen under `src/main/java`
+* ... med några extra importer och annoteringar. Dessa beskrivs i `src/main/java/se/jensen/caw21/bjorn/springdemo01helloworld/SpringDemo01HelloWorldApplication.java`
+
+När du startar det här programmet kan du gå till följande sidor i din webbläsare:
+
+* http://127.0.0.1:8080/
+* http://127.0.0.1:8080/undersida
+
+Om du går till en sida som inte finns får du ett felmeddelande. Testa att gå hit:
+
+* http://127.0.0.1:8080/finnsinte
+
+För mer detaljer se inspelad video och läs dokumentationen om Spring:
+
+https://docs.spring.io/spring-boot/docs/1.1.4.RELEASE/reference/html/getting-started-first-application.html
+
+## Felsökning, HTTP-koder och terminalen
+
+Öppna din terminal (Ubuntu, git-bash eller Terminal på OSX) och testa använda programmet `curl`. Du kan behöva köra `apt install curl` i Ubuntu eller `homebrew install curl` på OSX).
+
+Kom ihåg att dollartecknet bara är en indikator på att det som står efter det är något du kan skriva i terminalen. Står det `$ curl -s 127.0.0.1:8080` behöver du bara skriva `curl -s 127.0.0.1:8080` - alltså utan dollartecknet.
+
+```
+$ curl -s 127.0.0.1:8080
+Hello World!
+```
+
+```
+$ curl -s 127.0.0.1:8080/undersida
+Hej igen! Nu på undersidan.
+```
+
+```
+$ curl -s 127.0.0.1:8080/finnsej
+{"timestamp":"2021-12-13T13:51:13.054+00:00","status":404,"error":"Not Found","path":"/finnsej"}
+```
+
+Det `-s` gör är "silent", att vi inte ser en progress bar om hur nedladdningen går. Testa gärna köra kommandot utan `-s`. Jag har använt det här för att den informationen mest skulle distrahera.
+
+## HTTP-koder och annan HTTP-information
+
+Det vi ser i våra exempel ovan är innehållet i sidan. Det vi oftast är intresserade av. Det är typ som själva meddelandet i ett mail. Men med mail så har vi även annan information, som exempelvis när det skickades eller från vem. Liknande information finns för HTTP, och detta kallas för "headers" och är metadata - alltså data om vår data.
+
+Om vi använder `curl` med `-I` så får vi se header-information.
+
+Här är samma kommandon som tidigare men med `-I`:
+
+```
+$ curl -I -s 127.0.0.1:8080
+HTTP/1.1 200
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 12
+Date: Mon, 13 Dec 2021 14:00:51 GMT
+```
+
+Här ser vi att protokollet är HTTP, version 1.1. `200` är vår statuskod (se nedan). Vi kan även se `Content-Type`, `Content-Length` och vilket datum informationen skapades.
+
+```
+$ curl -I -s 127.0.0.1:8080/undersida
+HTTP/1.1 200
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 28
+Date: Mon, 13 Dec 2021 14:01:08 GMT
+```
+
+Samma som exemplet innan, men meddelandet är längre.
+
+```
+$ curl -I -s 127.0.0.1:8080/finnsej
+HTTP/1.1 404
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 13 Dec 2021 14:01:28 GMT
+```
+
+Här var det stor skillnad från innan, när vi försökte ladda en sida som inte finns. De två viktigaste just nu är att statuskoden är `404` istället för `200`, och `Content-Type` är något annat.
+
+## Statuskoder i HTTP
+
+Mozilla har en bra sida om vad det finns för olika statuskoder och vad de används till. Läs igenom den sidan:
+
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+Du måste inte memorera alla, men att läsa igenom listan en gång ger dig en bra insikt om vad det finns för koder.
+
+**Uppgift:** Vad betyder statuskoden `418`?
+
+En annan bra källa för statuskoder är https://http.cat.
