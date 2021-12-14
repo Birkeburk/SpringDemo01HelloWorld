@@ -14,6 +14,11 @@ Se dessa filer och läs kommentarerna som står i dem:
 
 Se som vanligt även LP och inspelad video för mer information.
 
+Vill du köra detta i terminalen kan du göra så här:
+
+    mvn compile
+    mvn exec:java -Dexec.mainClass=se.jensen.caw21.bjorn.springdemo01helloworld.SpringDemo01HelloWorldApplication
+
 ## Nytt projekt
 
 Det här är ett exempelprojekt av hur vi kan skriva en HelloWorld med Spring.
