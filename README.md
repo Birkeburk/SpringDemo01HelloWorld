@@ -1,5 +1,19 @@
 # HelloWorld i Spring
 
+## Nytt med webben i denna branch
+
+I den här grenen i git så har jag lagt in en hel del filer.
+
+Dessa kommer från projekt som Bootstrap, JQuery, och diverse andra platser.
+
+Se dessa filer och läs kommentarerna som står i dem:
+
+* src/main/webapp/index.html
+* src/main/webapp/css/min-stilfil.css
+* src/main/webapp/js/min-scriptfil.js
+
+Se som vanligt även LP och inspelad video för mer information.
+
 ## Nytt projekt
 
 Det här är ett exempelprojekt av hur vi kan skriva en HelloWorld med Spring.

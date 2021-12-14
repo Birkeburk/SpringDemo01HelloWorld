@@ -1,0 +1,53 @@
+/* Här skriver vi CSS. Det här är en kommentar. */
+
+/* Se filen src/main/webapp/css/bootstrap.css för inspiration. */
+/* Det finns även en fil som heter bootstrap.min.css, men den är komprimerad
+ * (all whitespace är borttagen för att göra den snabbare att ladda ner), men
+ * den är lite mindre lättläst. */
+
+/* Se även https://www.w3schools.com/css/default.asp för vad du kan göra här. */
+
+/* Du vill nog ta bort den här raden från index.html om du vill testa från grunden:
+
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+*/
+
+/* Åter igen: Det här är ingen kurs i CSS. Det här är helt valfritt att ge sig an. */
+
+/* element med class="tabell-test-1" */
+.tabell-test-1 {
+  color: #f00;
+}
+
+/* element med id="tabell-test-2" */
+#tabell-test-2 {
+  color: blue;
+}
+
+.kabam {
+  background-color: #000;
+  color: #fff;
+  border: 5px solid #0ff;
+}
+
+.kabam {
+  padding: 1em;
+}
+
+.kabam a {
+  color: #f00;
+}
+
+/* Jag tycker ju det här är jättesnyggt, men det brukar inte chefer tycka. */
+.kabam a:hover {
+  color: #ff0;
+  font-style: underline;
+  font-weight: 800;
+  font-size: 3em;
+  background-color: #bae;
+  padding: 1em;
+}
+
+body {
+  margin: 2em;
+}

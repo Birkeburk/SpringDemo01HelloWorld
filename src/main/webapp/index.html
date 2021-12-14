@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <!-- head innehåller "metainformation", information om den här sidan -->
+    <head>
+      <!-- utf-8 är en teckenuppsättning, och utan denna kan det bli lite problem med exempelvis å, ä och ö. -->
+      <meta charset="utf-8">
+
+      <!-- Det här är ett modernt sätt att beskriva hur sidan visas upp, har att göra med att anpassa sidan till olika sorters skärmar, exempelvis datorskärmar eller mobilskärmar. -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, minimum-scale=1">
+
+      <!-- Bootstrap CSS -->
+      <!-- Här importarar vi en CSS-fil. I vår CSS-fil beskriver vi hur den här sidan ska se ut. Vad händer om du kommenterar ut eller tar bort den här raden? -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+      <!-- Här är en till CSS-fil. Här kan vi skriva in lite egna regler. -->
+      <link rel="stylesheet" type="text/css" href="css/min-stilfil.css">
+
+      <!-- jQuery library -->
+      <!-- Här importerar vi ett JavaScript-bibliotek som gör mycket av jobbet med att jobba med JavaScript enklare. -->
+      <script src="js/jquery-3.6.0.min.js"></script>
+
+      <!-- Här importerar vi en JS-fil som vi skrivit själva. -->
+      <script src="js/min-scriptfil.js"></script>
+
+      <!-- Latest compiled Bootstrap JS-->
+      <!-- Här importerar vi en annan JavaScript-fil som innehåller saker som används i Bootstrap, men den är utkommenterad och används inte för stunden. -->
+      <!--
+      <script src="bootstrap.min.js"></script>
+      -->
+  </head>
+  <body>
+
+      <h1>Det här är en rubrik</h1>
+      <p>Det här är text under rubriken, och <strong>vissa ord</strong> går att göra i <strong>fetstil</strong> eller kanske <em>kursiva</em>.</p>
+
+      <p>Här är en länk till en annan sida: <a href="annan_sida.html">annan_sida.html</a>.</p>
+
+      <p>
+        <button id="getMovies">Hämta filmer!</button>
+        <button id="alert">Gör en pop-up!</button>
+        <button id="clearMovies">Rensa listan av filmer</button>
+      </p>
+
+      <h2>En lista med filmer:</h2>
+      <ul id="movies">
+        <li>foo</li>
+      </ul>
+
+      <h2>Internethistoria</h2>
+      <p>Här är en bild av en badge som säger att den här sidan är gjord med giltig HTML. Det var något som var häftigt att ha på sin hemsida för c:a 15-20 år sedan i vissa kretsar. Vad jag gjort här är dock bara att jag laddade ner bilden och lade upp den här - kanske har jag skrivit fel någonstans. Dessutom så är den nya versionen av HTML HTML5, så den här bilden är inte ens riktigt relevant.</p>
+      <p>Men här har ni ett exempel av hur vi kan lägga in bilder i hemsidor.</p>
+
+      <img src="valid-html401.gif" alt="Här är en beskrivning av bilden för de som inte kan se bilder.">
+
+      <h2>Länkar och listor</h2>
+      <h3>Unordered list: ul</h3>
+      <ul>
+        <li>Det här är en punktlista.</li>
+        <li>Tekniskt sett är det här en "unordered list" - där ordningen av det som står här inte är så viktig.</li>
+      </ul>
+
+      <h3>Ordered list: ol</h3>
+      <ol>
+        <li>Det här är en ordnad lista.</li>
+        <li>Den görs på nästan samma sätt, enda skillnaden är att taggen heter ol istället för ul.</li>
+        <li>Det här är i praktiken viktigt oftast när det kommer till "screen readers", för de som har program som läser upp text på hemsidor då de av en eller annan anledning inte kan läsa vad det står på sidor.</li>
+        <li>Den rubriken brukar kallas för "accessability" - att göra en sida tillgänglig.</li>
+      </ol>
+
+      <h3>HTML är förlåtande - eller bara väldigt slappt</h3>
+
+      <ul>
+        <li>Vi måste inte alltid skriva alla tecken
+        <li> Exempelvis saknar denna lista stängande tagg för li i slutet
+        <li> Men det fungerar ändå.
+      </ul>
+
+      <h3>Länkar</h3>
+
+      <p>Vi kan också skriva länkar, typ till <a href="https://github.com">github.com</a> om vi vill. Eller om vi vill skriva en länk som öppnar en mailklient, typ <a href="mailto:min.epostadress@domän.se">min.epostadress@domän.se</a>. Skillnaden där är <strong>https://</strong> och <strong>mailto:</strong> i HTML-koden.</p>
+
+      <h3>Markdown - de där filerna som slutar med .md</h3>
+
+      <p>Tycker du den här filen är lite... svår att läsa? När du tittar på koden alltså? Det är anledningen till att Markdown är en grej. Det är därför vi har skrivit på det sätt vi gjort på våra wikis. Markdown skapades (till stor del) för att slippa skriva HTML manuellt. Det är lätt att det blir fel ibland.</p>
+
+      <h2>Tabeller</h2>
+
+      Det går att baka in CSS i HTML. Det är inte snyggt - helst gör vi det i separata CSS-filer - men det går. Den här tabellen har jag gett bredd 80% och gett den en kant runtom - direkt i index.html.
+
+      <table style="width: 80%; border: 1px solid #333">
+        <tr>
+          <th>Kolumn 1</th>
+          <th>Kolumn 2</th>
+          <th>Kolumn 3</th>
+        </tr>
+        <tr>
+          <td>Så här skriver vi tabeller.</td>
+          <td>Dopdidoo</td>
+          <td>Lorem ipsum</td>
+        </tr>
+        <tr>
+          <td class="tabell-test-1">Den här cellen i tabellen har class="tabell-test-1".</td>
+          <td class="tabell-test-1">Den här cellen i tabellen har class="tabell-test-1".</td>
+          <td id="tabell-test-2">Den här cellen i tabellen har id="tabell-test-2".</td>
+        </tr>
+        <tr>
+          <td>id är för unika element (max 1 per sida)</td>
+          <td>class är för flera element (1 eller fler per sida)</td>
+        </tr>
+        <tr>
+          <td>Lorem ipsum</td>
+          <td colspan="2">Lorem ipsum fast två kolumner bred.</td>
+        </tr>
+      </table>
+
+      <h2>Kod!</h2>
+
+      <pre>Det finns en tag som vi kan använda för att göra text där alla tecken är lika breda.</pre>
+      <code>Nu för tiden finns det även en tagg som heter code.</code>
+
+      <h2>Tips till webbutveckling</h2>
+
+      <p>Använd "Web Developer Tools", eller vad det än heter i din webbläsare. Högerklicka var som helst på den här sidan och välj "Inspect element" eller dylikt. Där kan du få upp en konsoll som berättar vad som händer i webbsidan. Det här är även demonstrerat under lektion och på video och är ovärdeligt.</p>
+
+  </body>
+</html>
