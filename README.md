@@ -96,6 +96,17 @@ Mozilla har en bra sida om vad det finns för olika statuskoder och vad de anvä
 
 Du måste inte memorera alla, men att läsa igenom listan en gång ger dig en bra insikt om vad det finns för koder.
 
-**Uppgift:** Vad betyder statuskoden `418`?
+# Uppgifter
 
-En annan bra källa för statuskoder är https://http.cat.
+## Uppgift 1
+Skapa ett nytt projekt precis som jag gjort ovan. Använd `curl`-kommandona och se om du får samma svar som jag fick.
+
+Testa skapa några nya sidor (metoder) och se om du kan få dem att fungera också.
+
+## Uppgift 2
+
+Vad betyder statuskoden `418`?
+
+# Se även
+
+En bra källa för statuskoder är https://http.cat.
