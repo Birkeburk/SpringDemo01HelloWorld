@@ -25,9 +25,9 @@ Det här är ett exempelprojekt av hur vi kan skriva en HelloWorld med Spring.
 
 Vad jag gjort:
 
-* Skapat ett nytt projekt i IntelliJ och valt att använda Spring Boot Initializer
-* Lagt in en dependency i pom.xml
-* Lagt till två metoder i java-filen under `src/main/java`
+* Skapat ett nytt projekt i IntelliJ och valt att använda Spring Initializer
+* Lagt in en dependency i pom.xml (jämför med min fil)
+* Lagt till två metoder i java-filen under `src/main/java` (se min fil)
 * ... med några extra importer och annoteringar. Dessa beskrivs i `src/main/java/se/jensen/caw21/bjorn/springdemo01helloworld/SpringDemo01HelloWorldApplication.java`
 
 När du startar det här programmet kan du gå till följande sidor i din webbläsare:
