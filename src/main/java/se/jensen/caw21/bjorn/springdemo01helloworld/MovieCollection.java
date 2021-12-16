@@ -3,6 +3,7 @@ package se.jensen.caw21.bjorn.springdemo01helloworld;
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,21 +11,23 @@ import java.util.ArrayList;
 
 @RestController
 public class MovieCollection {
-    private ArrayList<String> myMovies;
+    private ArrayList<Movie> myMovies;
 
     public MovieCollection() {
-        myMovies = new ArrayList<String>();
-        myMovies.add("Men In Black");
-        myMovies.add("Men In Black 2");
+        myMovies = new ArrayList<Movie>();
+        Movie newMovie1 = new Movie("Men In Black", 9);
+        Movie newMovie2 = new Movie("Men In Black 2", 8);
+        addMovie(newMovie1);
+        addMovie(newMovie2);
         System.out.println("[MovieCollection] Nu körs konstruktorn");
     }
 
-    public void addMovie(String title) {
-        System.out.println("[MovieCollection] Lade till filmen " + title);
-        myMovies.add(title);
+    public void addMovie(Movie movie) {
+        System.out.println("[MovieCollection] Lade till filmen " + movie.title);
+        myMovies.add(movie);
     }
 
-    public ArrayList<String> getMovies() {
+    public ArrayList<Movie> getMovies() {
         return myMovies;
     }
 
@@ -63,24 +66,29 @@ public class MovieCollection {
     @RequestMapping("/api/movies")
     JsonArray apiMovies() {
         // Skapa ett JSON-objekt
-        JsonArray array = new JsonArray();
+        JsonArray arrayOfObjects = new JsonArray();
 
         for (int i = 0; i < myMovies.size(); i++) {
-            array.add(myMovies.get(i));
+            JsonObject movieObject = new JsonObject();
+            movieObject.put("title", myMovies.get(i).title);
+            movieObject.put("rating", myMovies.get(i).rating);
+
+            arrayOfObjects.add(movieObject);
         }
 
         // Skriv ut till vår consol, gör det lättare vid felsökning
-        System.out.println("[MovieCollection] Metod: movies(), RequestMapping: /movies, retunerar: " + array);
+        //System.out.println("[MovieCollection] Metod: movies(), RequestMapping: /movies, retunerar: " + jsonMovies);
+        System.out.println("[MovieCollection] Metod: movies(), RequestMapping: /movies, retunerar: ");
 
         // Retunera objektet istället för strängen
-        return array;
+        return arrayOfObjects;
     }
 
     // Lägg till nya filmer i listan med vårt API
     @RequestMapping("/api/add_movie")
-    void apiAddMovie(@RequestParam(required = false) String title) {
-        System.out.println("[MovieCollection] API: add_move: title:" + title);
-        addMovie(title);
+    void apiAddMovie(@RequestBody Movie movie) {
+        System.out.println("[MovieCollection] API: add_move: title:" + movie.title);
+        addMovie(movie);
     }
 
     // Lägg till nya filmer i listan med vårt API

@@ -37,9 +37,9 @@ $(document).ready(function(){
         alert("Listan av filmer är tom!");
       }
 
-      $.each(data, function(index, value) {
-        console.log("Adding movie " + value + " to list");
-        $("ul#movies").append("<li>" + index + ". " + value + "</li>");
+      $.each(data, function(index, movie) {
+        console.log("Adding movie " + movie + " to list");
+        $("ul#movies").append("<li>" + movie.title + ". (" + movie.rating + "/10)</li>");
       });
     });
   });
@@ -58,6 +58,13 @@ $(document).ready(function(){
 
   // https://api.jquery.com/jQuery.post/
   $("button#addDummaMej").click(function (){
-    $.post("/api/add_movie", { "title": "Dumma Mej" });
+    $.ajax({
+        url: "/api/add_movie",
+        type: "POST",
+        contentType:"application/json; charset=utf-8",
+        dataType: "json",
+        data: '{ "title": "Dumma Mej", "rating": 10 }',
+        success: function() {}
+    });
   })
 });
