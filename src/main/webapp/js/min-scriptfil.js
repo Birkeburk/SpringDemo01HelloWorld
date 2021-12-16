@@ -22,6 +22,9 @@ $(document).ready(function(){
     console.log("button#clearMovies pressed");
 
     $("ul#movies").empty();
+
+    // Skicka en API-förfrågan till en metod som rensar listan av filmer
+    $.post("/api/clear_movies", []);
   });
 
   $("button#getMovies").click(function(){
@@ -29,6 +32,10 @@ $(document).ready(function(){
 
     $.get("/api/movies", function(data, status){
       $("ul#movies").empty();
+
+      if (data.length == 0) {
+        alert("Listan av filmer är tom!");
+      }
 
       $.each(data, function(index, value) {
         console.log("Adding movie " + value + " to list");
@@ -48,4 +55,9 @@ $(document).ready(function(){
       alert("Det var bättre förr.");
     });
   });
+
+  // https://api.jquery.com/jQuery.post/
+  $("button#addDummaMej").click(function (){
+    $.post("/api/add_movie", { "title": "Dumma Mej" });
+  })
 });
